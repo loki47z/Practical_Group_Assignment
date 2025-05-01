@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<body>
+
+<canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+
+<script>
+const xValues = ["electronics", "beverages", "household", "toiletries", "clothing", "stationary","automotive","hardware"];
+const yValues = [0,0.2,0.4,0.6,0.8,1.0,1.2,1.4,1.6,1.8,2.0];
+const barColors = ["blue", "orange","red","aliceblue","green","yellow","meroon","pink"];
+
+new Chart("myChart", {
+  type: "bar",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    legend: {display: false},
+    scales: {
+      yAxes: [{
+        ticks: {
+          beginAtZero: true
+        }
+      }]
+    },
+
+    title: {
+      display: true,
+      text: "prouducts by categories"
+    }
+  }
+});
+</script>
+
+
+
+
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+
+<canvas id="myChart2" style="width:100%;max-width:600px"></canvas>
+
+<script>
+const xValues2 = ["electronics", "beverages", "household", "toiletries", "clothing", "stationary","automotive","hardware" ];
+const yValues2 = [0,0.2,0.4,0.6,0.8,1.0,1.2,1.4,1.6,1.8,2.0];
+const barColors2 = ["blue", "orange","red","aliceblue","green","yellow","meroon","pink"]; 
+
+new Chart("myChart2", {
+  type: "pie",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    title: {
+      display: true,
+      text: "World Wide Wine Production 2018"
+    }
+  }
+});
+</script>
+
+</body>
+</html>
