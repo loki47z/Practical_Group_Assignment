@@ -50,30 +50,16 @@
   },
   {
     "Id": 8,
-    "Name": "Mens shorts",
-    "Category": "Clothing",
-    "Quantity": 30,
-    "Price": 3000
-  },
-  {
-    "Id": 9,
-    "Name": "Redmi 10 Power",
+    "Name": "Samsung",
     "Category": "Electronics",
-    "Quantity": "10",
-    "Price": "50000"
-  },
-  {
-    "Id": 10,
-    "Name": "Tissue",
-    "Category": "Toiletries",
     "Quantity": "50",
     "Price": "200"
   },
   {
-    "Id": 11,
-    "Name": "oil",
-    "Category": "Beverages",
-    "Quantity": "20",
-    "Price": "50000"
+    "Id": 9,
+    "Name": "Redmi 10",
+    "Category": "Electronics",
+    "Quantity": "1",
+    "Price": "10"
   }
 ]

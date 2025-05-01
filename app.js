@@ -108,6 +108,51 @@ app.get("/dashboard", adminOnly, (req,res) =>{
     res.render("dashboard")
 })
 
+// Show edit form
+app.get("/products/edit/:id", (req, res) => {
+    const id = parseInt(req.params.id)
+    const product = jsonProducts.find(p => p.Id === id)
+    if (!product) return res.status(404).send("Product not found")
+    res.render("editProducts", { product })
+})
+
+// Handle edit form submission
+app.post("/products/edit/:id", (req, res) => {
+    const id = parseInt(req.params.id)
+    const index = jsonProducts.findIndex(p => p.Id === id)
+    if (index === -1) return res.status(404).send("Product not found")
+
+    jsonProducts[index] = {
+        Id: id,
+        Name: req.body.productName,
+        Category: req.body.category,
+        Quantity: req.body.quantity,
+        Price: req.body.price
+    }
+
+    fs.writeFile('public/data.json', JSON.stringify(jsonProducts, null, 2), (err) => {
+        if (err) return res.status(500).send("Failed to save changes")
+        res.redirect("/products/view")
+    })
+})
+
+app.get("/products/delete/:id", (req, res) => {
+    const id = parseInt(req.params.id)
+    jsonProducts = jsonProducts.filter(p => p.Id !== id)
+
+    // Reassign IDs (optional)
+    jsonProducts = jsonProducts.map((p, index) => ({
+        ...p,
+        Id: index + 1
+    }))
+
+    fs.writeFile('public/data.json', JSON.stringify(jsonProducts, null, 2), (err) => {
+        if (err) return res.status(500).send("Failed to delete product")
+        res.redirect("/products/view")
+    })
+})
+
+
 app.use((req, res, next)=>{
     res.send("Page does not exist")
 })
