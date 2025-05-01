@@ -4,19 +4,67 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>New Products</title>
-  <link rel="stylesheet" href="styles.css">
+  <style>
+  *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+  }
+  
+  body{
+      background-color: #f0f0f0;
+      font-family: Arial, sans-serif;
+  }
+  
+  .nav-bar {
+      background-color: #1c1cbb;
+      color: white;
+  }
+  
+  .nav-bar ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+  }
+  
+  .nav-bar li {
+      display: inline;
+      margin: 0;
+      transition: background-color 0.3s;
+      padding: 16px;
+  }
+  
+  .nav-bar a {
+      color: white;
+      text-decoration: none;
+  }
+  .nav-bar li:hover {
+      background-color: #575757;
+  }
+  form{
+      margin: 20px;
+      padding: 20px;
+      border-radius: 5px;
+  }
+  .para{
+    font-size: 2rem;
+    margin-bottom: 6px;
+  }
+  </style>
 </head>
 <body>
   <nav class="nav-bar">
     <ul>
       <div>
-        <li><a href="home.html">Home</a></li>
-        <li><a href="#products.html">products</a></li>
-        <li><a href="#newProducts.html">New Products</a></li>
-        <li><a href="#dashboard.html">Dashboard</a></li>
+        <li><a href="/home">Home</a></li>
+        <li><a href="/products/view">Products</a></li>
+        <li><a href="#">New Products</a></li>
+        <li><a href="/dashboard">Dashboard</a></li>
       </div>
-
-      <li class="logout-btn"><a href="logout.html">logout</a></li>
+      <li class="logout-btn"><a href="/">Logout</a></li>
     </ul>
   </nav>
 

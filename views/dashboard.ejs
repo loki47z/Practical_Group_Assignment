@@ -3,9 +3,62 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Chart Example</title>
+  <title>Dashboard</title>
+  <style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body{
+        background-color: #f0f0f0;
+        font-family: Arial, sans-serif;
+    }
+    
+    .nav-bar {
+        background-color: #1c1cbb;
+        color: white;
+    }
+    
+    .nav-bar ul {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .nav-bar li {
+        display: inline;
+        margin: 0;
+        transition: background-color 0.3s;
+        padding: 16px;
+    }
+    
+    .nav-bar a {
+        color: white;
+        text-decoration: none;
+    }
+    .nav-bar li:hover {
+        background-color: #575757;
+    }
+  </style>
 </head>
 <body>
+
+    <nav class="nav-bar">
+        <ul>
+          <div>
+            <li><a href="/home">Home</a></li>
+            <li><a href="/products/view">Products</a></li>
+            <li><a href="/products/add">New Products</a></li>
+            <li><a href="#">Dashboard</a></li>
+          </div>
+          <li class="logout-btn"><a href="/">Logout</a></li>
+        </ul>
+      </nav>
 
     <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
     <canvas id="myChart2" style="width:100%;max-width:600px"></canvas>
@@ -15,19 +68,16 @@
         fetch('data.json')
         .then(response => response.json())
         .then(products => {
-            // Count items per category
             const categoryCounts = products.reduce((acc, product) => {
             const category = product.Category;
             acc[category] = (acc[category] || 0) + 1;
             return acc;
             }, {});
 
-            // Extract categories and counts into arrays
             const xValues = Object.keys(categoryCounts);
             const yValues = Object.values(categoryCounts);
             const barColors = ["blue", "orange", "red", "green", "yellow", "purple", "pink", "brown"];
 
-            // Create Bar Chart
             new Chart("myChart", {
             type: "bar",
             data: {
@@ -53,8 +103,6 @@
                 }
             }
             });
-
-            // Create Pie Chart
             new Chart("myChart2", {
             type: "pie",
             data: {

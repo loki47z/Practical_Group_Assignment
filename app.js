@@ -36,7 +36,9 @@ app.get("/", (req, res) =>{
 app.get("/products", (req,res) =>{
     res.send(jsonProducts)
 })
-
+app.get("/home", (req,res) =>{
+    res.render("home1")
+})
 app.get("/login", (req,res) =>{
     res.render("login")
 })
